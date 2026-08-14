@@ -12,10 +12,21 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug (URL)',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+      description: 'Used for the product category URL (e.g., /products/rubber-white-clear). Click "Generate" after entering the title.',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'description',
       title: 'Category Description',
-      type: 'text',
-      rows: 3,
+      type: 'array', 
+      of: [{ type: 'block' }],
     }),
     defineField({
       name: 'image',
