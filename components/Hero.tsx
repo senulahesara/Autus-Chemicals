@@ -42,7 +42,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full bg-background overflow-hidden min-h-[100svh] lg:min-h-0 pt-8 pb-20 lg:pt-28 lg:pb-32 flex items-center">
+    <section className="relative w-full bg-background overflow-hidden min-h-[100svh] lg:min-h-0 pt-8 pb-20 lg:pt-16 lg:pb-32 flex items-center">
       <div className="absolute inset-0 z-0 lg:hidden flex items-center justify-center opacity-[0.08] pointer-events-none">
         <AnimatePresence>
           <motion.div
