@@ -17,7 +17,7 @@ export default function Footer() {
                 alt="Autus Chemicals"
                 width={160}
                 height={50}
-                className="w-auto h-12 object-contain brightness-0 invert"
+                className="w-auto h-12 object-contain"
               />
             </Link>
             <p className="text-slate-400 leading-relaxed text-sm max-w-sm mb-8">

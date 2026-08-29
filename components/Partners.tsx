@@ -52,7 +52,7 @@ export default async function Partners() {
             {duplicatedPartners.map((partner, index) => (
               <div
                 key={`${partner._id}-${index}`}
-                className="relative h-10 md:h-12 w-28 md:w-36 grayscale opacity-50 flex-shrink-0"
+                className="relative h-10 md:h-12 w-28 md:w-36 flex-shrink-0"
               >
                 <Image
                   src={urlFor(partner.image).url()}
