@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, Mail, ChevronRight } from "lucide-react";
+import { MapPin, Phone, Mail, ChevronRight, ArrowRight } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,16 +10,20 @@ export default function Footer() {
     <footer className="relative w-full bg-slate-950 text-slate-300 overflow-hidden pt-20 pb-10 border-t border-slate-900">
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+          
+          
           <div className="lg:col-span-4 flex flex-col">
-            <Link href="/" className="inline-block mb-6">
+            {/* Link එකට ගානට උසක් (h-14/h-16) දීලා, Image එක ඒකට fill කරනවා */}
+            <Link href="/" className="relative block w-40 md:w-48 h-14 md:h-16 mb-6">
               <Image
-                src="/logo.png"
+                src="/logowhite.png"
                 alt="Autus Chemicals"
-                width={160}
-                height={50}
-                className="w-auto h-12 object-contain"
+                fill
+                className="object-contain object-left"
+                priority
               />
             </Link>
+            
             <p className="text-slate-400 leading-relaxed text-sm max-w-sm mb-8">
               Delivering premium, cost-effective, and sustainable chemical
               innovations for the global textile and screen printing industry.
@@ -209,5 +213,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-import { ArrowRight } from "lucide-react";

@@ -4,29 +4,26 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const slides = [
   {
     id: 1,
-    title: "Advanced Chemical Solutions for Modern Textiles.",
-    subtitle:
-      "Delivering premium, cost-effective, and sustainable chemical innovations for the global garment industry.",
-    image: "/hero-1.jpg",
+    title: "We represent leading manufacturers",
+    subtitle: "in Screen Printing and Textile Chemicals",
+    image: "/newhero1.avif",
   },
   {
     id: 2,
-    title: "Global Leaders in Screen Printing & Dyes.",
-    subtitle:
-      "Partnering with top-tier manufacturers to bring you world-class pigments, binders, and custom solutions.",
-    image: "/hero-2.jpg",
+    title: "We provide cost effective solutions",
+    subtitle: "by understanding our customers needs",
+    image: "/newhero2.avif",
   },
   {
     id: 3,
-    title: "Driven by Uncompromising Customer Service.",
-    subtitle:
-      "Your success is our core DNA. We provide tailored solutions and expert support for every scale of production.",
-    image: "/hero-3.jpg",
+    title: "Advanced Chemical Solutions for Modern Textiles",
+    subtitle: "Delivering premium innovations for the global garment industry",
+    image: "/newhero3.avif",
   },
 ];
 
@@ -42,121 +39,100 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full bg-background overflow-hidden min-h-[100svh] lg:min-h-0 pt-8 pb-20 lg:pt-16 lg:pb-32 flex items-center">
-      <div className="absolute inset-0 z-0 lg:hidden flex items-center justify-center opacity-[0.08] pointer-events-none">
-        <AnimatePresence>
+    // Section height changed to 80vh and min-height to ensure it doesn't break on very small screens
+    <section className="relative w-full h-[80vh] min-h-[500px] overflow-hidden flex items-center bg-slate-950">
+      
+      {/* 1. Full Screen Background Images with Crossfade */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="popLayout">
           <motion.div
             key={currentSlide}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
             className="absolute inset-0 w-full h-full"
-            style={{
-              maskImage:
-                "radial-gradient(circle at center, black 30%, transparent 80%)",
-              WebkitMaskImage:
-                "radial-gradient(circle at center, black 30%, transparent 80%)",
-            }}
           >
             <Image
               src={slides[currentSlide].image}
-              alt=""
+              alt={slides[currentSlide].title}
               fill
-              className="object-cover"
+              className="object-cover object-center"
               priority
             />
           </motion.div>
         </AnimatePresence>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          <div className="flex flex-col justify-center max-w-xl mx-auto lg:mx-0 w-full">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-700 border border-border text-sm font-semibold w-fit">
-              <span>Premium B2B Chemical Partner</span>
-            </div>
+      {/* 2. Dark Gradient Overlay */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-slate-950/95 via-slate-950/60 to-transparent"></div>
+      <div className="absolute inset-0 z-10 bg-black/20 sm:bg-transparent"></div>
 
-            <div className="relative w-full h-[220px] sm:h-[180px] lg:h-[200px] mt-8 mb-8">
-              <AnimatePresence>
-                <motion.div
-                  key={currentSlide}
-                  initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
-                  transition={{ duration: 1.2, ease: "easeInOut" }}
-                  className="absolute top-1/2 -translate-y-1/2 left-0 w-full flex flex-col gap-4"
-                >
-                  <h1 className="text-[2rem] lg:text-[2.5rem] font-bold tracking-tight text-foreground leading-[1.2] text-balance max-w-lg">
-                    {slides[currentSlide].title}
-                  </h1>
-                  <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-md">
-                    {slides[currentSlide].subtitle}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-4">
-              <Link
-                href="/products"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#01CD61] text-black font-medium rounded-xl hover:bg-[#01CD61]/90 transition-all duration-300 shadow-sm"
-              >
-                Explore Products <ChevronRight size={18} />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-foreground font-medium rounded-xl border border-border hover:bg-slate-50 transition-all duration-300"
-              >
-                Get a Quote
-              </Link>
-            </div>
-
-            <div className="flex items-center gap-3 mt-10">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`h-1.5 rounded-full transition-all duration-500 ${
-                    currentSlide === index
-                      ? "w-8 bg-[#01CD61]"
-                      : "w-2 bg-slate-200 hover:bg-slate-300"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
+      {/* 3. Main Content Container */}
+      <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full h-full flex flex-col justify-center">
+        {/* Adjusted top margin to center better in 80vh */}
+        <div className="max-w-2xl mt-12 md:mt-16">
+          
+          {/* Badge: Font size reduced to text-xs / text-sm */}
+          <div className="inline-flex items-center px-3 py-1.5 rounded-md bg-[#A3D936] text-slate-900 text-xs md:text-sm font-semibold mb-6 shadow-sm">
+            Printing Chemicals & Materials • Sri Lanka
           </div>
 
-          <div className="hidden lg:flex relative w-full aspect-[4/3] items-center justify-center">
-            <AnimatePresence mode="wait">
+          {/* Animated Text Content: Min height and font sizes reduced */}
+          <div className="relative w-full min-h-[120px] md:min-h-[140px]">
+            <AnimatePresence mode="popLayout">
               <motion.div
                 key={currentSlide}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1.2, ease: "easeInOut" }}
-                className="absolute inset-0 w-full h-full"
-                style={{
-                  // The ultimate 4-sided gradient mask for a seamless edge fade
-                  WebkitMaskImage:
-                    "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
-                  WebkitMaskComposite: "source-in",
-                  maskImage:
-                    "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
-                  maskComposite: "intersect",
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="absolute top-0 left-0 w-full"
               >
-                <Image
-                  src={slides[currentSlide].image}
-                  alt={slides[currentSlide].title}
-                  fill
-                  className="object-cover"
-                  priority={currentSlide === 0}
-                />
+                {/* Title font size reduced */}
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.1] mb-3 text-balance drop-shadow-lg">
+                  {slides[currentSlide].title}
+                </h1>
+                {/* Subtitle font size reduced */}
+                <p className="text-base md:text-xl text-slate-200 font-medium leading-relaxed drop-shadow-md">
+                  {slides[currentSlide].subtitle}
+                </p>
               </motion.div>
             </AnimatePresence>
           </div>
+
+          {/* Buttons: Padding, font size (text-sm), and icon size (16) reduced */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-6">
+            <Link
+              href="/products"
+              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#009B60] text-white text-sm font-semibold rounded-lg hover:bg-[#009B60]/90 transition-all duration-300 shadow-lg"
+            >
+              Explore Products <ArrowRight size={16} />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-transparent text-white text-sm font-semibold rounded-lg border border-white/40 hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+            >
+              Contact Sales
+            </Link>
+          </div>
+
+          {/* Slider Indicators: Scaled down slightly to match */}
+          <div className="flex items-center gap-2 mt-8">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`h-1.5 rounded-full transition-all duration-500 ${
+                  currentSlide === index
+                    ? "w-6 bg-[#A3D936]" // Shorter active pill
+                    : "w-1.5 bg-white/40 hover:bg-white/70" // Smaller inactive dot
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
