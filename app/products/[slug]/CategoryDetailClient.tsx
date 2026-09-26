@@ -112,9 +112,13 @@ export default function CategoryDetailClient({
                           sizes="(max-width: 768px) 50vw, 25vw"
                         />
                       ) : (
-                        <span className="text-slate-300 text-xs uppercase tracking-widest">
-                          No Image
-                        </span>
+                        <Image
+                          src="/logo.png"
+                          alt={product.title}
+                          fill
+                          className="object-contain p-2 mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
+                          sizes="(max-width: 768px) 50vw, 25vw"
+                        />
                       )}
                     </div>
 
