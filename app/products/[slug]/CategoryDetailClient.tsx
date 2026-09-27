@@ -101,19 +101,19 @@ export default function CategoryDetailClient({
                     transition={{ duration: 0.4, delay: (pIndex % 4) * 0.1 }}
                     className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center justify-between group"
                   >
-                    {/* Product Image Box (No links, purely display) */}
-                    <div className="relative w-full aspect-[4/3] mb-4 bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
-                      
-                        {product.image ? (
-                        <Image
-                          src={urlFor(product.image).url()}
-                          alt={product.title}
-                          fill
-                          className="object-contain p-2 mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
-                          sizes="(max-width: 768px) 50vw, 25vw"
-                        />
-                      )}
-                    </div>
+                    {/* Product Image Box - Shows only if product.image exists */}
+{product.image && (
+  <div className="relative w-full aspect-[4/3] mb-4 bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+    <Image
+      src={urlFor(product.image).url()}
+      alt={product.title}
+      fill
+      className="object-contain p-2 mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
+      sizes="(max-width: 768px) 50vw, 25vw"
+    />
+  </div>
+)}
+
 
                     {/* Product Title */}
                     <h3 className="text-sm md:text-base font-semibold text-slate-700 text-center text-balance w-full">
