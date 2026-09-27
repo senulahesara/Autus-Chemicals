@@ -103,7 +103,7 @@ export default function CategoryDetailClient({
                   >
                     {/* Product Image Box (No links, purely display) */}
                     <div className="relative w-full aspect-[4/3] mb-4 bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
-                      {product.image ? (
+                      
                         <Image
                           src={urlFor(product.image).url()}
                           alt={product.title}
@@ -111,15 +111,6 @@ export default function CategoryDetailClient({
                           className="object-contain p-2 mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
                           sizes="(max-width: 768px) 50vw, 25vw"
                         />
-                      ) : (
-                        <Image
-                          src="/logo.png"
-                          alt={product.title}
-                          fill
-                          className="object-contain p-2 mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
-                          sizes="(max-width: 768px) 50vw, 25vw"
-                        />
-                      )}
                     </div>
 
                     {/* Product Title */}
