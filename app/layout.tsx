@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Autus Chemicals",
+  title: "Autus",
   description: "Autus Chemicals",
 };
 
