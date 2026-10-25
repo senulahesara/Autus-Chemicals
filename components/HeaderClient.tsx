@@ -75,19 +75,19 @@ export default function HeaderClient({ categories }: { categories: Category[] })
                         Textile Printing Solutions
                       </h4>
                       {/* Bento Grid Layout for Categories */}
-                      <div className="grid grid-cols-3 gap-3">
-                        {categories.map((category, index) => (
-                          <Link
-                            key={index}
-                            href={`/products/${category.slug}`}
-                            className={`block p-4 rounded-xl border border-transparent bg-slate-50 hover:bg-white hover:border-[#01CD61]/30 hover:shadow-sm transition-all duration-300 group/item ${getBentoSpan(index)}`}
-                          >
-                            <span className="text-sm font-semibold text-foreground group-hover/item:text-[#01CD61] transition-colors block">
-                              {category.name}
-                            </span>
-                          </Link>
-                        ))}
-                      </div>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+  {categories.map((category, index) => (
+    <Link
+      key={index}
+      href={`/products/${category.slug}`}
+      className="flex items-center justify-center p-4 min-h-[80px] rounded-xl border border-slate-200/50 bg-slate-50 hover:bg-white hover:border-[#01CD61]/40 hover:shadow-[0_4px_15px_rgba(1,205,97,0.08)] transition-all duration-300 group/item"
+    >
+      <span className="text-sm font-semibold text-slate-700 text-center text-balance group-hover/item:text-[#01CD61] transition-colors">
+        {category.name}
+      </span>
+    </Link>
+  ))}
+</div>
                     </div>
                   </div>
                 </div>
