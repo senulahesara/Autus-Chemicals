@@ -72,7 +72,7 @@ export default function HeaderClient({ categories }: { categories: Category[] })
 
                     <div>
                       <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4 px-2">
-                        Textile Printing Solutions
+                        Our Printing Products
                       </h4>
                       {/* Bento Grid Layout for Categories */}
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
