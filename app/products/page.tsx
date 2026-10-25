@@ -37,21 +37,6 @@ export default async function ProductsPage() {
             </p>
           </div>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-          {mainProductRanges.map((range, index) => (
-            <div
-              key={index}
-              className="relative flex items-center justify-center p-8 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-[#01CD61]/40 transition-colors duration-300"
-            >
-              <div className="absolute top-4 left-4 w-1.5 h-1.5 rounded-full bg-[#01CD61]/50"></div>
-
-              <h3 className="text-lg md:text-xl font-bold text-slate-800 text-center text-balance">
-                {range}
-              </h3>
-            </div>
-          ))}
-        </div>
       </section>
       <ProductsGridClient categories={textileCategories} />
     </main>
