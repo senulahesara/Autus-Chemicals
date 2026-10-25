@@ -75,15 +75,19 @@ export default function HeaderClient({ categories }: { categories: Category[] })
                         Our Printing Products
                       </h4>
                       {/* Bento Grid Layout for Categories */}
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+                      <div className="flex flex-col gap-3 md:gap-4">
   {categories.map((category, index) => (
     <Link
       key={index}
       href={`/products/${category.slug}`}
-      className="flex items-center justify-center p-4 min-h-[80px] rounded-xl border border-slate-200/50 bg-slate-50 hover:bg-white hover:border-[#01CD61]/40 hover:shadow-[0_4px_15px_rgba(1,205,97,0.08)] transition-all duration-300 group/item"
+      className="flex items-center justify-between w-full p-4 md:p-5 rounded-xl border border-slate-200/50 bg-slate-50 hover:bg-white hover:border-[#01CD61]/50 hover:shadow-[0_4px_20px_rgba(1,205,97,0.08)] transition-all duration-300 group"
     >
-      <span className="text-sm font-semibold text-slate-700 text-center text-balance group-hover/item:text-[#01CD61] transition-colors">
+      <span className="text-sm md:text-base font-semibold text-slate-700 group-hover:text-[#01CD61] transition-colors">
         {category.name}
+      </span>
+      {/* Hover කරද්දි ඉස්සරහට යන ලස්සන ඊතලයක් */}
+      <span className="text-slate-300 group-hover:text-[#01CD61] group-hover:translate-x-1 transition-all duration-300 text-lg">
+        →
       </span>
     </Link>
   ))}
